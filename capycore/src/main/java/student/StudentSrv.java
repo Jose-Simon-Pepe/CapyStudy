@@ -1,7 +1,9 @@
 package student;
 
-public class StudentSrv {
+import capyutilities.ServicesUtilities;
+
+public class StudentSrv extends ServicesUtilities {
     public Boolean saveStudentData(Student whosaves) {
-        return true;
+        return input_is_empty(whosaves.getName(),whosaves.getSurname(),whosaves.getPass());
     }
 }

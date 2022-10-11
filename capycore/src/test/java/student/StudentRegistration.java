@@ -2,6 +2,7 @@ package student;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StudentRegistration {
@@ -18,11 +19,25 @@ public class StudentRegistration {
     void should_save_my_own_data() {
         //given
         Student whosaves = new Student();
-        whosaves.setName("").setSurname("").setPassword("");
+        whosaves.setName("pedro").setSurname("carlos").setPass("menem123");
         //when
         Boolean wasSaved = studentService.saveStudentData(whosaves);
         //then
         assertTrue(wasSaved);
+    }
+
+    // Case: Student key data can't be empty or incorrectly wrote
+
+
+    @Test
+    void should_test_that_student_key_data_is_not_empty() {
+        //given
+        Student whosaves = new Student();
+        whosaves.setName("").setSurname("").setPass("");
+        //when
+        Boolean wasSaved = studentService.saveStudentData(whosaves);
+        //then
+        assertFalse(wasSaved);
     }
 }
 

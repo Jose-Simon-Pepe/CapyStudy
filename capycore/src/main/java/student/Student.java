@@ -1,18 +1,33 @@
 package student;
 
-import javax.security.auth.callback.PasswordCallback;
-
 public class Student {
-    public Student setName(String s) {
-    return this;
-    }
 
-    public Student setSurname(String s) {
-    return this;
-    }
-
-
-    public Student setPassword(String s) {
+    private String name, surname, pass;
+    public Student setName(String name) {
+        this.name=name;
         return this;
+    }
+
+    public Student setSurname(String surname) {
+        this.surname=surname;
+        return this;
+    }
+
+
+    public Student setPass(String pass) {
+        this.pass=pass;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPass() {
+        return pass;
     }
 }
