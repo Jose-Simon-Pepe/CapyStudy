@@ -68,9 +68,20 @@ public class StudentRegistration {
     }
 
     //  TODO Cómo estudiante, quiero iniciar la aplicación sin tener que confirmar que soy yo dado que soy el único usuario del pc, para usarla más ágilmente
+    //  should be tested: user is the only pc user, student has to had indicated he wanna this feature, and that by default system requires confirmation
 
 
 
+    @Test
+    void should_test_that_student_can_start_app_without_identity_confirmation() {
+        //given
+        whosaves.tabAccessIDConfirmation();
+        boolean hasHadIdentityConfirmation = false;
+        //when
+        boolean hasBeenStarted = app.start().state();
+        //then
+        assertTrue(hasBeenStarted);
+    }
 }
 
 

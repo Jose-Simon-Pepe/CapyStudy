@@ -3,6 +3,7 @@ package student;
 public class Student {
 
     private String name, surname, pass;
+    private Boolean accessIDConfirmation = true;
     public Student setName(String name) {
         this.name=name;
         return this;
@@ -38,5 +39,14 @@ public class Student {
                 ", surname='" + surname + '\'' +
                 ", pass='" + pass + '\'' +
                 '}';
+    }
+
+    public Student setAccessIDConfirm(boolean value) {
+        return this;
+    }
+
+    public Student tabAccessIDConfirmation(){
+        accessIDConfirmation = !accessIDConfirmation;
+        return this;
     }
 }
