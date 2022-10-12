@@ -2,6 +2,7 @@ package generator;
 
 import org.junit.jupiter.api.Test;
 import spacedpractice.SpacedPractice;
+import studysession.StudySession;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,15 +26,21 @@ public class TestGenerator {
     @Test
     void should_test_that_generator_creates_study_sessions() {
         //given
+        Generator generator = new Generator();
         //when
+        StudySession ss = generator.create().studySession().get();
         //then
+        assertNotNull(ss);
     }
 
     @Test
     void should_test_that_generator_creates_review_files_from_study_sheets() {
         //given
+        Generator generator = new Generator();
         //when
+        SpacedPractice sp = generator.create().spacedPractice().get();
         //then
+        assertNotNull(sp);
     }
 
 }
