@@ -30,4 +30,13 @@ public class Student {
     public String getPass() {
         return pass;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", pass='" + pass + '\'' +
+                '}';
+    }
 }

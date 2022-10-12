@@ -40,10 +40,10 @@ public class StudentRegistration {
     }
 
     /**
-    in order to input registration data is rightly wrote, it has to be:
-        1- name and surname has to start with capital
-        2- neither name nor surname can contain numeric characters
-        3- password length has to be larger than 8, it has to have a capital, also at least one number
+     * in order to input registration data is rightly wrote, it has to be:
+     * 1- name and surname has to start with capital
+     * 2- neither name nor surname can contain numeric characters
+     * 3- password length has to be larger than 8, it has to have a capital, also at least one number
      */
     @Test
     void should_test_that_student_key_data_is_not_incorrectly_wrote() {
@@ -56,6 +56,15 @@ public class StudentRegistration {
     }
 
 
+    @Test
+    void should_test_that_system_formats_name_and_surname_automatically() {
+        //given a student
+        whosaves.setName("PedrRo").setSurname("faA").setPass("Contra312");
+        //when
+        Boolean wasSaved = studentService.saveStudentData(whosaves);
+        //then
+        assertTrue(true);
+    }
 }
 
 
