@@ -10,13 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class StudentRegistration {
         /*
         Registros de perfiles por usuario
-            TODO Cómo estudiante, quiero tener una forma de acceso que garantice que soy yo quien está accediendo a mi contenido
+
         */
 
     StudentSrv studentService = new StudentSrv();
     Student whosaves = new Student();
 
-    //            DONE: Cómo estudiante, quiero guardar mis datos en mi propio perfil
+    //  DONE: Cómo estudiante, quiero guardar mis datos en mi propio perfil
+    //  DONE: Cómo estudiante, quiero tener una forma de acceso que garantice que soy yo quien está accediendo a mi contenido
+
     @Test
     void should_save_my_own_data() {
         //given a student
@@ -66,8 +68,6 @@ public class StudentRegistration {
         //then
         assertTrue(wasSaved);
     }
-
-
 
 }
 
