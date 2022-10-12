@@ -3,25 +3,22 @@ package capyutilities;
 import org.jetbrains.annotations.NotNull;
 import student.Student;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public abstract class ServicesUtilities {
 
     protected boolean input_was_completed(String @NotNull ... inputs) {
-        for (String input : inputs) {
-            if (input == null || input.isBlank()) {
-                return false;
-            }
-        }
-        return true;
+        return Arrays.stream(inputs).noneMatch(String::isBlank);
     }
 
     protected boolean input_is_right(@NotNull Student who) {
-        Student toSave = null;
+        Student toSave;
         if (passIsRight(who.getPass()) && !stringContainsNumber(who.getName())
                 && !stringContainsNumber(who.getSurname()) && stringStartsWithCapital(who.getName())) {
-             toSave = formatNameAndSurname(who);
+            toSave = formatNameAndSurname(who);
             return stringStartsWithCapital(toSave.getName()) && stringStartsWithCapital(toSave.getSurname());
-        }
-        else{
+        } else {
             return false;
         }
     }
@@ -38,21 +35,17 @@ public abstract class ServicesUtilities {
     }
 
     private boolean stringContainsNumber(@NotNull String string) {
-        for (char letter : string.toCharArray()) {
-            if (Character.isDigit(letter)) {
-                return true;
-            }
-        }
-        return false;
+        return !string.chars()
+                .filter(Character::isDigit)
+                .mapToObj(c -> Character.toString((char) c))
+                .collect(Collectors.joining()).isBlank();
     }
 
     private boolean stringContainsCapital(@NotNull String pass) {
-        for (char letter : pass.toCharArray()) {
-            if (Character.isUpperCase(letter)) {
-                return true;
-            }
-        }
-        return false;
+        return !pass.chars()
+                .filter(Character::isUpperCase)
+                .mapToObj(c -> Character.toString((char) c))
+                .collect(Collectors.joining()).isBlank();
     }
 
     private boolean stringStartsWithCapital(@NotNull String string) {

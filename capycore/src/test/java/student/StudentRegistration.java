@@ -2,6 +2,8 @@ package student;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Collectors;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,7 +21,7 @@ public class StudentRegistration {
     @Test
     void should_save_my_own_data() {
         //given a student
-        whosaves.setName("Pedro").setSurname("Carlos").setPass("meSemaaa123");
+        whosaves.setName("Pedro").setSurname("Carlos").setPass("assS222212");
         //when
         Boolean wasSaved = studentService.saveStudentData(whosaves);
         //then
@@ -59,12 +61,14 @@ public class StudentRegistration {
     @Test
     void should_test_that_system_formats_name_and_surname_automatically() {
         //given a student
-        whosaves.setName("PedrRo").setSurname("faA").setPass("Contra312");
+        whosaves.setName("PedrRo").setSurname("faA").setPass("Contra<<<<<<<312");
         //when
         Boolean wasSaved = studentService.saveStudentData(whosaves);
         //then
-        assertTrue(true);
+        assertTrue(wasSaved);
     }
+
+
 }
 
 
