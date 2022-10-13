@@ -1,5 +1,7 @@
 package student;
 
+import generator.configs.StudyConfiguration;
+
 public class Student {
 
     private String name, surname, pass;
@@ -48,5 +50,9 @@ public class Student {
     public Student tabAccessIDConfirmation(){
         accessIDConfirmation = !accessIDConfirmation;
         return this;
+    }
+
+    public StudyConfiguration getStudyConfigurations(int id) {
+        return new StudyConfiguration();
     }
 }
