@@ -6,6 +6,6 @@ public interface Generable<Object,Configuration> {
 
     Object get();
 
-    Generable using(Configuration toUse);
+    Object using(Configuration toUse);
 
 }

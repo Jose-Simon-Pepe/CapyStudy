@@ -5,8 +5,8 @@ import spacedpractice.SpacedPractice;
 public class Generator{
 
 
-    public Create create() {
-        return new Create();
+    public CreateGenerable createGenerables() {
+        return new CreateGenerable();
     }
 
     public Generator spacedPractice(){

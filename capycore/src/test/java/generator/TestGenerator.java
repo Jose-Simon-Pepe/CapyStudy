@@ -9,7 +9,6 @@ import studysession.StudySession;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * done Cómo estudiante, quiero generar prácticas espaciados automáticamente
  * todo Cómo estudiante, quiero que estas prácticas espaciadas estén automáticamente calendarizadas siguiendo la curva del olvido que he seteado
  * todo Cómo estudiante, quiero calendarizar una sesión de estudio para el día actual
  * todo Cómo estudiante, quiero generar fichas de repaso automáticamente a partir de mis notas de estudio
@@ -17,14 +16,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestGenerator {
 
     Generator generator = new Generator();
+    Student whoStudies = new Student();
 
-    //  done Cómo estudiante, quiero generar prácticas espaciados automáticamente
+    //  done Cómo estudiante, quiero generar prácticas espaciados automáticamente estudysessions y review files
 
     @Test
     void should_test_that_generator_creates_spaced_practices() {
         //given a generator
         //when
-        SpacedPractice sp = generator.create().spacedPractice().get();
+        SpacedPractice sp = generator.createGenerables().spacedPractice().get();
         //then
         assertNotNull(sp);
     }
@@ -33,7 +33,7 @@ public class TestGenerator {
     void should_test_that_generator_creates_study_sessions() {
         //given a generator
         //when
-        StudySession ss = generator.create().studySession().get();
+        StudySession ss = generator.createGenerables().studySession().get();
         //then
         assertNotNull(ss);
     }
@@ -42,35 +42,44 @@ public class TestGenerator {
     void should_test_that_generator_creates_review_files_from_study_sheets() {
         //given a generator
         //when
-        SpacedPractice sp = generator.create().spacedPractice().get();
+        SpacedPractice sp = generator.createGenerables().spacedPractice().get();
         //then
         assertNotNull(sp);
     }
 
-    // todo Cómo estudiante, quiero generar sesiones de estudio automáticamente con mis configuraciones
+    // todo Cómo estudiante, quiero generar review files de una nota de estudio que he hecho
+
+
+    // done Cómo estudiante, quiero generar sesiones de estudio automáticamente con mis configuraciones
 
 
     @Test
     void should_test_that_generator_creates_study_sessions_with_user_config() {
         //given
-        Student whoStudies = new Student();
         StudyConfiguration studySessionsConfigurations = whoStudies.getStudyConfigurations(1);
         //when
-        StudySession generated = generator.create().studySession().using(studySessionsConfigurations);
+        StudySession generated = generator.createGenerables().studySession().using(studySessionsConfigurations);
         //then
         assertNotNull(generated);
     }
 
     @Test
     void should_test_that_generator_creates_study_sessions_with_user_config_if_has_one_at_least() {
-        //given
-        Student whoStudies = new Student();
-        StudyConfiguration studySessionsConfigurations = whoStudies.getStudyConfigurations(1);
+        //given a student
+        StudyConfiguration studySessionsConfigurations = null;
         //when
-        StudySession generated = generator.create().studySession().using(studySessionsConfigurations);
+        StudySession generated = generator.createGenerables().studySession().using(studySessionsConfigurations);
         //then
-        assertNotNull(generated);
+        assertNull(generated);
     }
+
+    // todo: en caso de no tener configuraciones creadas, generator usará una config por defecto
+    // todo: en caso de no tener configuraciones creadas y no tener la defecto, no se creará un generable
+
+
+
+
+
 
 
 }

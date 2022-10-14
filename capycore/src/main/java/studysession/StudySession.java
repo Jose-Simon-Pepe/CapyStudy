@@ -14,6 +14,7 @@ public class StudySession implements Generable<StudySession,StudyConfiguration> 
 
     @Override
     public StudySession using(StudyConfiguration studySessionsConfigurations) {
+        if (studySessionsConfigurations == null) return null;
         toUse = studySessionsConfigurations;
         return this;
     }
