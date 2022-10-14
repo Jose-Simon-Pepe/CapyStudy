@@ -8,4 +8,5 @@ public interface Generable<Object,Configuration> {
 
     Object using(Configuration toUse);
 
+
 }

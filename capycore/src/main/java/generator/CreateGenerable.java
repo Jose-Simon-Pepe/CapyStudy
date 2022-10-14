@@ -9,14 +9,15 @@ import spacedpractice.SpacedPractice;
 import studysession.StudySession;
 
 public class CreateGenerable {
-    public Generable<StudySession, StudyConfiguration> studySession(){
+    public StudySession studySession() {
         return new StudySession();
     }
-    public Generable<SpacedPractice, SpacedPracticeConfiguration> spacedPractice(){
+
+    public SpacedPractice spacedPractice() {
         return new SpacedPractice();
     }
 
-    public Generable<ReviewSheet, ReviewSheetConfiguration> reviewSheet(){
-        return new ReviewSheet();
+    public ReviewSheetGenerator reviewSheet() {
+        return new ReviewSheetGenerator();
     }
 }

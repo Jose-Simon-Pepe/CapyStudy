@@ -1,7 +1,9 @@
 package generator;
 
 import generator.configs.StudyConfiguration;
+import note.studynote.StudyNote;
 import org.junit.jupiter.api.Test;
+import reviewsheet.ReviewSheet;
 import spacedpractice.SpacedPractice;
 import student.Student;
 import studysession.StudySession;
@@ -48,7 +50,40 @@ public class TestGenerator {
     }
 
     // todo Cómo estudiante, quiero generar review files de una nota de estudio que he hecho
+    // todo generator cannot create reviewFile
 
+    @Test
+    void should_test_that_generator_uses_study_notes_to_create_review_file() {
+        //given
+        StudyNote fileToConvert = new StudyNote();
+        //when
+        ReviewSheet toCreate = generator.createGenerables().reviewSheet().from(fileToConvert).get();
+        //then
+        assertNotNull(toCreate);
+
+    }
+
+    @Test
+    void should_test_that_generator_only_creates_review_files_if_exits_study_note() {
+        //given
+        StudyNote fileToConvert = null;
+        //when
+        ReviewSheet toCreate = generator.createGenerables().reviewSheet().from(fileToConvert).get();
+        //then
+        assertNull(toCreate);
+
+    }
+
+    @Test
+    void should_test_that_generator_creates_review_files_using_passed_file() {
+        //given
+        StudyNote fileToConvert = new StudyNote();
+        //when
+        ReviewSheet toCreate = generator.createGenerables().reviewSheet().from(fileToConvert).get();
+        //then
+        assertEquals(fileToConvert,toCreate.getFrom());
+
+    }
 
     // done Cómo estudiante, quiero generar sesiones de estudio automáticamente con mis configuraciones
 
@@ -75,11 +110,6 @@ public class TestGenerator {
 
     // todo: en caso de no tener configuraciones creadas, generator usará una config por defecto
     // todo: en caso de no tener configuraciones creadas y no tener la defecto, no se creará un generable
-
-
-
-
-
 
 
 }
