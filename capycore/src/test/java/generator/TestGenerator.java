@@ -1,5 +1,6 @@
 package generator;
 
+import configurations.DefaultConfigGenerable;
 import generator.configs.StudyConfiguration;
 import note.studynote.StudyNote;
 import org.junit.jupiter.api.Test;
@@ -81,7 +82,7 @@ public class TestGenerator {
         //when
         ReviewSheet toCreate = generator.createGenerables().reviewSheet().from(fileToConvert).get();
         //then
-        assertEquals(fileToConvert,toCreate.getFrom());
+        assertEquals(fileToConvert, toCreate.getFrom());
 
     }
 
@@ -95,7 +96,7 @@ public class TestGenerator {
         //when
         StudySession generated = generator.createGenerables().studySession().using(studySessionsConfigurations);
         //then
-        assertNotNull(generated);
+        assertEquals(studySessionsConfigurations, generated.getConfig());
     }
 
     @Test
@@ -112,4 +113,13 @@ public class TestGenerator {
     // todo: en caso de no tener configuraciones creadas y no tener la defecto, no se creará un generable
 
 
+    @Test
+    void should_test_that_generator_uses_default_config_to_create_generables() {
+        //given
+        DefaultConfigGenerable byDefault = new DefaultConfigGenerable();
+        //when
+        StudySession generated = generator.createGenerables().studySession().get();
+        //then
+        assertEquals(generated.getConfig(),byDefault);
+    }
 }

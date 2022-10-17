@@ -2,6 +2,7 @@ package spacedpractice;
 
 import capyutilities.Generable;
 import generator.configs.SpacedPracticeConfiguration;
+import generator.configs.StudyConfiguration;
 
 public class SpacedPractice implements Generable<SpacedPractice, SpacedPracticeConfiguration> {
 
@@ -15,5 +16,10 @@ public class SpacedPractice implements Generable<SpacedPractice, SpacedPracticeC
     public SpacedPractice using(SpacedPracticeConfiguration toUse) {
         this.toUse = toUse;
         return this;
+    }
+
+    @Override
+    public SpacedPracticeConfiguration getConfig() {
+        return toUse;
     }
 }
