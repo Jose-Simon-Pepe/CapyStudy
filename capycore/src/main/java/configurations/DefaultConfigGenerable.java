@@ -1,6 +1,5 @@
 package configurations;
 
-import capyutilities.Configuration;
 import generator.configs.StudyConfiguration;
 
 public class DefaultConfigGenerable {

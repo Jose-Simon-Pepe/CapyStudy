@@ -1,6 +1,7 @@
 package capyutilities;
 
 import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
