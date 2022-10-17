@@ -8,6 +8,7 @@ import reviewsheet.ReviewSheetConfiguration;
 import spacedpractice.SpacedPractice;
 import studysession.StudySession;
 
+
 public class CreateGenerable {
     public StudySession studySession() {
         return new StudySession();
