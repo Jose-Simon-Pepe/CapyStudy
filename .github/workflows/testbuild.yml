@@ -27,7 +27,7 @@ jobs:
         java-version: '18'
         distribution: 'temurin'
         cache: maven
-    - run: cd capycore
+    - run: cd capystudy/capycore
     - run: pwd
     - name: Build with Maven
       run: mvn -B package --file pom.xml
