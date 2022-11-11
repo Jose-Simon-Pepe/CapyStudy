@@ -1,10 +1,10 @@
 package student;
 
 import capyutilities.ServicesUtilities;
-import org.jetbrains.annotations.NotNull;
+
 
 public class StudentSrv extends ServicesUtilities {
-    protected boolean input_is_right(@NotNull Student who) {
+    protected boolean input_is_right( Student who) {
         Student toSave;
         if (passIsRight(who.getPass()) && !stringContainsNumber(who.getName())
                 && !stringContainsNumber(who.getSurname()) && stringStartsWithCapital(who.getName())) {

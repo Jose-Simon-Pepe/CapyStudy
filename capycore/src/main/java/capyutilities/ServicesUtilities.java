@@ -1,13 +1,11 @@
 package capyutilities;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public abstract class ServicesUtilities<Object> {
 
-    protected boolean input_was_completed(String @NotNull ... inputs) {
+    protected boolean input_was_completed(String  ... inputs) {
         return Arrays.stream(inputs).noneMatch(String::isBlank);
     }
 
@@ -17,21 +15,21 @@ public abstract class ServicesUtilities<Object> {
     }
 
 
-    protected boolean stringContainsNumber(@NotNull String string) {
+    protected boolean stringContainsNumber( String string) {
         return !string.chars()
                 .filter(Character::isDigit)
                 .mapToObj(c -> Character.toString((char) c))
                 .collect(Collectors.joining()).isBlank();
     }
 
-    protected boolean stringContainsCapital(@NotNull String pass) {
+    protected boolean stringContainsCapital( String pass) {
         return !pass.chars()
                 .filter(Character::isUpperCase)
                 .mapToObj(c -> Character.toString((char) c))
                 .collect(Collectors.joining()).isBlank();
     }
 
-    protected boolean stringStartsWithCapital(@NotNull String string) {
+    protected boolean stringStartsWithCapital( String string) {
         return Character.isUpperCase(string.trim().charAt(0));
     }
 
