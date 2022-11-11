@@ -28,6 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - run: cd capycore
+    - run: pwd
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
